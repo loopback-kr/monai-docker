@@ -21,7 +21,8 @@ Container images for MONAI Core are available in [loopbackkr's DockerHub reposit
 * Use [kakao mirror](https://mirror.kakao.com/) reposistory for apt and pip
 * Pretty welcome message with version log
 * Colorful bash prompt
-* preinstalled vim, git
+* Set region to Asia/Seoul for local time
+* Preinstalled vim, git, libGL
 
 ## References
 
