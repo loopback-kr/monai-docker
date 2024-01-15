@@ -1,4 +1,4 @@
-FROM projectmonai/monai:1.3.0
+FROM projectmonai/monai:1.1.0
 
 # Change default Shell to bash
 SHELL ["/bin/bash", "-c"]
@@ -8,7 +8,6 @@ ENV PYTHONIOENCODING=UTF-8
 ARG DEBIAN_FRONTEND=noninteractive
 # Change default prompt color of root to red
 RUN sed -i 's|    PS1=\x27${debian_chroot:+(\$debian_chroot)}\\\[\\033\[01;32m\\\]\\u@\\h\\\[\\033\[00m\\\]:\\\[\\033\[01;34m\\\]\\w\\\[\\033\[00m\\\]\\\$ \x27|    PS1=\x27\${debian_chroot:+(\$debian_chroot)}\\\[\\033\[01;31m\\\]\\u@\\h\\\[\\033\[00m\\\]:\\\[\\033\[01;34m\\\]\\w\\\[\\033\[00m\\\]\\\$ \x27|' /root/.bashrc
-RUN sed -i 's|    PS1=\x27${debian_chroot:+(\$debian_chroot)}\\\[\\033\[01;32m\\\]\\u@\\h\\\[\\033\[00m\\\]:\\\[\\033\[01;34m\\\]\\w\\\[\\033\[00m\\\]\\\$ \x27|    PS1=\x27\${debian_chroot:+(\$debian_chroot)}\\\[\\033\[01;33m\\\]\\u@\\h\\\[\\033\[00m\\\]:\\\[\\033\[01;34m\\\]\\w\\\[\\033\[00m\\\]\\\$ \x27|' /etc/bash.bashrc
 # Change Ubuntu repository address to Kakao mirror
 RUN sed -i "s|http://archive.ubuntu.com|http://mirror.kakao.com|g" /etc/apt/sources.list
 RUN sed -i "s|http://security.ubuntu.com|http://mirror.kakao.com|g" /etc/apt/sources.list
