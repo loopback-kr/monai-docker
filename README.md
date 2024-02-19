@@ -1,6 +1,6 @@
 # MONAI for Asia/Seoul region
 
-Container images for MONAI Core are available in [loopbackkr's DockerHub repository](https://hub.docker.com/r/loopbackkr/pytorch). This repository is forked from [docker.io/projectmonai/monai](https://hub.docker.com/r/projectmonai/monai/)
+Container images for MONAI Core are available in [loopbackkr's DockerHub repository](https://hub.docker.com/r/loopbackkr/monai-docker). This repository is forked from [docker.io/projectmonai/monai](https://hub.docker.com/r/projectmonai/monai/)
 
 ## Quick start
 
