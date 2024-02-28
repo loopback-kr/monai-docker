@@ -23,20 +23,12 @@ RUN echo 'alias cls="clear"' >> /etc/bash.bashrc
 # Add welcome message
 RUN echo -e "\n# Welcome message" >> /etc/bash.bashrc
 RUN echo "echo -e '\x1b[0;91m'" >> /etc/bash.bashrc
-RUN echo -e "cat<<TORCH\n\
-________        ________                  ______      FROM\n\
-___  __ \\____  ____  __/_____________________  /_       RESEARCH TO\n\
-__  /_/ /_  / / /_  /  _  __ \\_  ___/  ___/_  __ \\    PRODUCTION\n\
-_  ____/_  /_/ /_  /   / /_/ /  /   / /__ _  / / /\n\
-/_/     _\\__, / /_/    \\____//_/    \\___/ /_/ /_/     An open source machine learning framework that accelerates the path\n\
-        /____/                                        from research prototyping to production deployment.\n\
-\n\
-TORCH" >> /etc/bash.bashrc
+RUN echo "echo -e '\x1b[1;32m      ___           ___           ___           ___                 \n     /__/\\         /  /\\         /__/\\         /  /\\        ___     \x1b[0;36mMedical Open Network for Artificial Intelligence\x1b[1;32m\n    |  |::\\       /  /::\\        \\  \\:\\       /  /::\\      /  /\\    \x1b[1;32mAI Toolkit for Healthcare Imaging\n    |  |:|:\\     /  /:/\\:\\        \\  \\:\\     /  /:/\\:\\    /  /:/    \n  __|__|:|\\:\\   /  /:/  \\:\\   _____\\__\\:\\   /  /:/~/::\\  /__/::\\    \n /__/::::| \\:\\ /__/:/ \\__\\:\\ /__/::::::::\\ /__/:/ /:/\\:\\ \\__\\/\\:\\__ \n \\  \\:\\~~\\__\\/ \\  \\:\\ /  /:/ \\  \\:\\~~\\~~\\/ \\  \\:\\/:/__\\/    \\  \\:\\/\\n  \\  \\:\\        \\  \\:\\  /:/   \\  \\:\\  ~~~   \\  \\::/          \\__\\::/\n   \\  \\:\\        \\  \\:\\/:/     \\  \\:\\        \\  \\:\\          /__/:/ \n    \\  \\:\\        \\  \\::/       \\  \\:\\        \\  \\:\\         \\__\\/  \n     \\__\\/         \\__\\/         \\__\\/         \\__\\/                \n\x1b[0m'"  >> /etc/bash.bashrc
 RUN echo "echo -e '\x1b[0;33m'\$(sed -n '/^NAME=/p' /etc/os-release | cut -d '\"' -f 2)'\t'\$(sed -n '/VERSION=/p' /etc/os-release | cut -d '\"' -f 2)" >> /etc/bash.bashrc
 RUN echo "echo -e 'Python \t'\$(python -V | cut -d ' ' -f 2)" >> /etc/bash.bashrc
 RUN echo "echo -e 'Pip \t'\$(pip -V | cut -d '(' -f 1 | cut -d ' ' -f 2-)" >> /etc/bash.bashrc
 RUN echo "echo -e '\t'\$(sed -n '/index-url/p' /etc/pip.conf)" >> /etc/bash.bashrc
-RUN echo "echo -e 'PyTorch'\$(pip freeze | grep torch==) | sed 's/torch//' | sed 's| |\n\t|g' | sed 's|==| |g'" >> /etc/bash.bashrc
+RUN echo "echo -e 'PyTorch'\$(pip freeze | grep ^torch==) | sed 's/torch//' | sed 's| |\n\t|g' | sed 's|==| |g'" >> /etc/bash.bashrc
 RUN echo "if command -v nvidia-smi &> /dev/null" >> /etc/bash.bashrc
 RUN echo "then" >> /etc/bash.bashrc
 RUN echo "    echo -en '\x1b[0;33mCUDA\t' && echo -e \$(nvcc -V) | grep 'Cuda compilation tools' | cut -d ',' -f 3 | sed 's/ V//g' | cut -d ' ' -f 1" >> /etc/bash.bashrc
@@ -59,7 +51,9 @@ RUN apt update -qq &&\
         sudo\
         tzdata\
         vim\
-        git
+        git\
+        libgl1-mesa-glx\
+        libglib2.0-0
 # Clean cache
 RUN apt clean &&\
     rm -rf /var/lib/apt/lists/*
