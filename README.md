@@ -8,13 +8,13 @@ Container images for MONAI Core are available in [loopbackkr's DockerHub reposit
 
 `docker pull loopbackkr/monai:latest`
 
-`docker pull loopbackkr/monai:1.3.0`
+`docker pull loopbackkr/monai:1.2.0`
 
 ### Dockerfiling
 
 `FROM loopbackkr/monai:latest`
 
-`FROM loopbackkr/monai:1.3.0`
+`FROM loopbackkr/monai:1.2.0`
 
 ## Features
 
