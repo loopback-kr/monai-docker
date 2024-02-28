@@ -1,4 +1,4 @@
-FROM projectmonai/monai:1.3.0
+FROM projectmonai/monai:1.2.0
 
 # Change default Shell to bash
 SHELL ["/bin/bash", "-c"]
