@@ -22,7 +22,7 @@ Container images for MONAI Core are available in [loopbackkr's DockerHub reposit
 * Pretty welcome message with version log
 * Colorful bash prompt
 * Set region to Asia/Seoul for local time
-* Preinstalled vim, git, libGL
+* Preinstalled vim, git, libGL, lightning, jupyter, tensorboard
 
 ## References
 
