@@ -1,4 +1,4 @@
-FROM projectmonai/monai:1.3.0
+FROM projectmonai/monai:1.2.0
 
 # Change default Shell to bash
 SHELL ["/bin/bash", "-c"]
@@ -57,3 +57,6 @@ RUN apt update -qq &&\
 # Clean cache
 RUN apt clean &&\
     rm -rf /var/lib/apt/lists/*
+# Install PyTorch aux. packages
+RUN pip install --no-cache-dir pytorch_lightning==2.0.9 lightning==2.0.9 jupyter tensorboard
+RUN pip install -U mlflow
