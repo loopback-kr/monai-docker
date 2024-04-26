@@ -16,6 +16,12 @@ Container images for MONAI Core are available in [loopbackkr's DockerHub reposit
 
 `FROM loopbackkr/monai:1.2.0`
 
+### Build & Push
+
+`docker build -t loopbackkr/monai:1.3.0 .`
+
+`docker image push loopbackkr/monai:1.3.0`
+
 ## Features
 
 * Use [kakao mirror](https://mirror.kakao.com/) reposistory for apt and pip
